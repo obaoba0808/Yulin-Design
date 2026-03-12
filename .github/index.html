@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侑霖室內裝潢設計 | 專屬您的生活美學與空間規劃</title>
+    <meta name="description" content="侑霖室內裝潢設計，結合生活習慣與極致美學。專精室內設計、室內裝修、住宅設計、商業空間設計、居家裝潢與空間規劃。台北/新北頂級室內設計師團隊，為您打造溫暖舒適、創意與實用並重的夢想空間。">
+    <meta name="keywords" content="室內設計, 室內裝修, 住宅設計, 商業空間設計, 裝潢, 設計風格, 新北室內設計, 台北室內設計, 設計師, 生活美學, 居家裝潢, 空間規劃, 設計案例, 裝潢教學, 設計靈感, 風格案例, 配色技巧, 收納技巧, 風水設計">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0c',
+                            light: '#f5f5f0',
+                            gold: '#d4af37',
+                            brown: '#8b7355',
+                            gray: '#2a2a2c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <style>
+        /* Noise Texture & Base Styles */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(42, 42, 44, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Bento Grid Layout */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            grid-auto-flow: dense;
+        }
+
+        .bento-item {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Responsive Bento Spans */
+        @media (min-width: 768px) {
+            .bento-span-12 { grid-column: span 12; }
+            .bento-span-8 { grid-column: span 8; }
+            .bento-span-6 { grid-column: span 6; }
+            .bento-span-4 { grid-column: span 4; }
+        }
+        @media (max-width: 767px) {
+            .bento-item { grid-column: span 12; }
+        }
+
+        /* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+
+        #three-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-gold selection:text-brand-dark relative">
+
+    <!-- Three.js Background -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 group">
+                <iconify-icon icon="ph:buildings-duotone" class="text-3xl text-brand-gold group-hover:scale-110 transition-transform"></iconify-icon>
+                <span class="font-serif text-xl font-bold tracking-widest text-white">侑霖室內設計</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center text-sm font-medium tracking-wide">
+                <a href="#philosophy" class="hover:text-brand-gold transition-colors">設計理念</a>
+                <a href="#bento-portfolio" class="hover:text-brand-gold transition-colors">空間美學</a>
+                <a href="#features" class="hover:text-brand-gold transition-colors">服務優勢</a>
+                <a href="#contact" class="bg-brand-gold text-brand-dark px-6 py-2.5 rounded-full hover:bg-white transition-all duration-300 font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]">立即預約</a>
+            </div>
+            <!-- Mobile Menu Btn -->
+            <button class="md:hidden text-2xl text-white">
+                <iconify-icon icon="ph:list-bold"></iconify-icon>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Gradient Overlay -->
+        <div class="absolute inset-0 z-0">
+            <!-- 室內設計專屬背景圖 -->
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="頂級室內設計與生活美學" class="w-full h-full object-cover object-center scale-105 transform origin-center animate-[subtleZoom_20s_ease-in-out_infinite_alternate]" />
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/60 to-brand-dark"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-transparent to-brand-dark/90"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
+            <!-- Animated SVG Icon -->
+            <div class="flex justify-center mb-8">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+                    <path d="M50 10 L90 40 L90 90 L10 90 L10 40 Z" stroke="#d4af37" stroke-width="2" stroke-linejoin="round" class="svg-path"/>
+                    <path d="M50 10 L50 90" stroke="#d4af37" stroke-width="1" stroke-dasharray="4 4" class="svg-path"/>
+                    <rect x="40" y="60" width="20" height="30" stroke="#d4af37" stroke-width="2" class="svg-path"/>
+                </svg>
+            </div>
+            
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-white leading-tight mb-6 tracking-wide drop-shadow-2xl gs-reveal">
+                將夢想與現實<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-brown italic">完美融合</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-light tracking-widest leading-relaxed gs-reveal delay-100">
+                從生活習慣出發，每項設計都是日常的延伸。<br>侑霖室內裝潢設計，為您打造兼具創意與實用的極致空間。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center gs-reveal delay-200">
+                <a href="#bento-portfolio" class="glass-panel px-8 py-4 rounded-full text-white font-medium hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    探索設計案例 <iconify-icon icon="ph:arrow-right-light"></iconify-icon>
+                </a>
+                <a href="#contact" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] flex items-center justify-center gap-2">
+                    免費諮詢規劃 <iconify-icon icon="ph:phone-call-duotone"></iconify-icon>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-70 animate-bounce">
+            <span class="text-xs tracking-widest uppercase mb-2">Scroll</span>
+            <div class="w-px h-12 bg-gradient-to-b from-brand-gold to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Philosophy Bento Section -->
+    <section id="philosophy" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 gs-reveal">
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-white mb-4">生活哲學與空間架構</h2>
+                <p class="text-gray-400 tracking-widest">注重生活習慣 / 創意與實用並重 / 溫暖舒適</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Large Feature Card -->
+                <div class="bento-item bento-span-8 glass-panel p-8 md:p-12 flex flex-col justify-center gs-reveal">
+                    <iconify-icon icon="ph:house-line-duotone" class="text-5xl text-brand-gold mb-6"></iconify-icon>
+                    <h3 class="font-serif text-2xl md:text-3xl text-white font-semibold mb-4">從生活習慣出發的空間規劃</h3>
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        設計不應只是冰冷的藝術品。侑霖室內設計深信，完美的住宅設計必須以使用者的「生活習慣」為核心。我們仔細聆聽您的日常作息，將收納技巧、動線規劃無縫融入每一寸空間，讓家不僅好看，更極致好用。
+                    </p>
+                </div>
+
+                <!-- Small Image/Feature Card -->
+                <div class="bento-item bento-span-4 glass-panel group gs-reveal delay-100">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="溫暖舒適配色" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10 p-8 h-full flex flex-col justify-end">
+                        <h4 class="font-serif text-xl text-white font-bold mb-2">溫暖舒適配色</h4>
+                        <p class="text-sm text-gray-300">選用米黃、淺灰與淺棕等溫潤色彩，營造視覺平衡與心靈的歸屬感。</p>
+                    </div>
+                </div>
+
+                <!-- Small Image/Feature Card -->
+                <div class="bento-item bento-span-4 glass-panel group gs-reveal">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="現代簡約風格" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10 p-8 h-full flex flex-col justify-end">
+                        <h4 class="font-serif text-xl text-white font-bold mb-2">簡潔大方</h4>
+                        <p class="text-sm text-gray-300">避免雜亂的顏色組合，以現代風格的黑、灰、白搭配亮色，確保視覺極致整潔。</p>
+                    </div>
+                </div>
+
+                <!-- Medium Feature Card -->
+                <div class="bento-item bento-span-8 glass-panel p-8 flex items-center gap-8 gs-reveal delay-100">
+                    <div class="flex-1">
+                        <iconify-icon icon="ph:plant-duotone" class="text-4xl text-brand-gold mb-4"></iconify-icon>
+                        <h4 class="font-serif text-2xl text-white font-bold mb-3">引入自然元素</h4>
+                        <p class="text-gray-400">
+                            打破室內外藩籬，我們善於運用實木紋理、自然採光與綠色植栽，為空間注入呼吸感。結合風水設計理念，創造氣場流通、自然清新的頂級居住環境。
+                        </p>
+                    </div>
+                    <div class="hidden md:block w-1/3 h-full rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="自然元素" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Portfolio Bento Section -->
+    <section id="bento-portfolio" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gs-reveal">
+                <div>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-white mb-4">精選設計案例</h2>
+                    <p class="text-gray-400 tracking-widest">住宅設計 / 商業空間 / 生活美學</p>
+                </div>
+                <a href="#" class="mt-6 md:mt-0 text-brand-gold hover:text-white transition-colors flex items-center gap-2 border-b border-brand-gold pb-1">
+                    查看完整作品集 <iconify-icon icon="ph:arrow-right"></iconify-icon>
+                </a>
+            </div>
+
+            <!-- Complex Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+                
+                <!-- Large Immersive Image (Spans 2x2) -->
+                <div class="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden relative group cursor-pointer gs-reveal">
+                    <!-- Integrating elegant high-end model/interior dynamic -->
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="頂級豪宅室內裝修" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="bg-brand-gold/20 text-brand-gold text-xs px-3 py-1 rounded-full backdrop-blur-md mb-3 inline-block border border-brand-gold/30">商業空間設計</span>
+                        <h3 class="font-serif text-2xl text-white font-bold">優雅夜 · 極致奢華寓所</h3>
+                        <p class="text-sm text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">融合現代簡約與古典元素的完美平衡</p>
+                    </div>
+                </div>
+
+                <!-- Top Right 1 -->
+                <div class="rounded-2xl overflow-hidden relative group cursor-pointer gs-reveal delay-100">
+                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="客廳居家裝潢" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="font-serif text-lg text-white font-bold drop-shadow-md">溫馨北歐宅</h3>
+                    </div>
+                </div>
+
+                <!-- Top Right 2 -->
+                <div class="rounded-2xl overflow-hidden relative group cursor-pointer gs-reveal delay-200">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="現代空間規劃" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="font-serif text-lg text-white font-bold drop-shadow-md">現代極簡公寓</h3>
+                    </div>
+                </div>
+
+                <!-- Bottom Right (Spans 2 cols) -->
+                <div class="md:col-span-2 rounded-2xl overflow-hidden relative group cursor-pointer gs-reveal delay-300">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="商辦空間設計" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
+                    <div class="absolute top-1/2 -translate-y-1/2 left-0 p-8 max-w-sm">
+                        <span class="text-brand-gold text-xs tracking-widest uppercase mb-2 block">Case Study</span>
+                        <h3 class="font-serif text-xl md:text-2xl text-white font-bold mb-2">科技企業總部規劃</h3>
+                        <p class="text-sm text-gray-400">打破傳統辦公框架，以光影與動線引導創意流動。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="py-32 relative z-10 overflow-hidden">
+        <!-- Background accent -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-4xl md:text-6xl font-bold text-white mb-8 gs-reveal">準備好打造您的夢想空間了嗎？</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-light gs-reveal delay-100">無論是住宅翻新、新成屋裝潢或是商業空間規劃，侑霖室內設計團隊已準備好將您的構想化為完美現實。</p>
+            
+            <div class="glass-panel p-8 md:p-12 rounded-3xl inline-block w-full max-w-3xl border border-brand-gold/20 gs-reveal delay-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-left border-r-0 md:border-r border-gray-700 pr-0 md:pr-8">
+                        <h3 class="text-brand-gold text-sm font-bold tracking-widest uppercase mb-2">聯絡我們 Contact Us</h3>
+                        <p class="text-white font-serif text-2xl mb-6">專屬設計師一對一諮詢</p>
+                        
+                        <div class="space-y-4">
+                            <a href="tel:0926-656666" class="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                                <div class="w-10 h-10 rounded-full bg-brand-gray flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors">
+                                    <iconify-icon icon="ph:phone-call-fill"></iconify-icon>
+                                </div>
+                                <span class="text-xl font-light tracking-wider">0926-656666</span>
+                            </a>
+                            <a href="tel:0936-310079" class="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                                <div class="w-10 h-10 rounded-full bg-brand-gray flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors">
+                                    <iconify-icon icon="ph:phone-call-fill"></iconify-icon>
+                                </div>
+                                <span class="text-xl font-light tracking-wider">0936-310079</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button class="w-full bg-white text-brand-dark py-4 rounded-xl font-bold text-lg hover:bg-brand-gold transition-colors duration-300 shadow-lg flex items-center justify-center gap-2">
+                            線上預約丈量 <iconify-icon icon="ph:calendar-check-duotone"></iconify-icon>
+                        </button>
+                        <p class="text-xs text-gray-500 mt-4 text-center">留下資訊，我們將於24小時內由專人為您服務。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-brand-dark/90 backdrop-blur-md relative z-10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-8">
+                <div class="text-center md:text-left">
+                    <a href="#" class="flex items-center gap-2 justify-center md:justify-start mb-4">
+                        <iconify-icon icon="ph:buildings-duotone" class="text-3xl text-brand-gold"></iconify-icon>
+                        <span class="font-serif text-2xl font-bold tracking-widest text-white">侑霖室內設計</span>
+                    </a>
+                    <p class="text-gray-500 text-sm max-w-sm">融合生活習慣與極致美學，為您創造不僅好看、更極致好用的空間設計。</p>
+                </div>
+                
+                <div class="flex gap-12 text-center md:text-left">
+                    <div>
+                        <h4 class="text-white font-medium mb-4">服務項目</h4>
+                        <ul class="space-y-2 text-gray-500 text-sm">
+                            <li><a href="#" class="hover:text-brand-gold transition-colors">室內設計</a></li>
+                            <li><a href="#" class="hover:text-brand-gold transition-colors">室內裝修</a></li>
+                            <li><a href="#" class="hover:text-brand-gold transition-colors">商業空間設計</a></li>
+                            <li><a href="#" class="hover:text-brand-gold transition-colors">空間規劃</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-4">設計探索</h4>
+                        <ul class="space-y-2 text-gray-500 text-sm">
+                            <li><a href="#" class="hover:text-brand-gold transition-colors">設計案例</a></li>
+                            <li><a href="#" class="hover:text-brand-gold transition-colors">設計風格與靈感</a></li>
+                            <li><a href="#" class="hover:text-brand-gold transition-colors">收納與配色技巧</a></li>
+                            <li><a href="#" class="hover:text-brand-gold transition-colors">風水設計</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <p>&copy; 2024 侑霖室內裝潢設計 Youlin Interior Design. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0 hidden">
+                    <!-- SEO Hidden Keywords for extra semantic relevance -->
+                    <span>台北室內設計</span>
+                    <span>新北室內設計</span>
+                    <span>設計師推薦</span>
+                    <span>裝潢教學</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Anime.js SVG Animation (Hero)
+        anime({
+            targets: '.svg-path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            duration: 2500,
+            delay: function(el, i) { return i * 250 },
+            direction: 'alternate',
+            loop: true
+        });
+
+        // 2. GSAP Scroll Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        const revealElements = document.querySelectorAll(".gs-reveal");
+        revealElements.forEach((elem) => {
+            gsap.fromTo(elem, {
+                y: 50,
+                opacity: 0
+            }, {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.style.background = 'rgba(10, 10, 12, 0.9)';
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.style.background = 'rgba(10, 10, 12, 0.7)';
+            }
+        });
+
+        // 3. Three.js Subtle Background (SaaS/High-end tech feel)
+        const canvas = document.getElementById('three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        // Create particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 700;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 10;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const material = new THREE.PointsMaterial({
+            size: 0.005,
+            color: 0xd4af37, // Brand Gold
+            transparent: true,
+            opacity: 0.5,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, material);
+        scene.add(particlesMesh);
+        camera.position.z = 3;
+
+        // Mouse interaction for particles
+        let mouseX = 0;
+        let mouseY = 0;
+        document.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX / window.innerWidth - 0.5;
+            mouseY = event.clientY / window.innerHeight - 0.5;
+        });
+
+        // Animation Loop
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+
+            particlesMesh.rotation.y = elapsedTime * 0.05;
+            particlesMesh.rotation.x = elapsedTime * 0.02;
+
+            // Subtle parallax based on mouse
+            camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY * 0.5 - camera.position.y) * 0.05;
+            
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
