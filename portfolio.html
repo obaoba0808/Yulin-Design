@@ -88,6 +88,7 @@
             letter-spacing: 0.1em;
             z-index: 10;
             border: 1px solid rgba(212, 175, 55, 0.3);
+            pointer-events: none; /* 確保標籤不會擋住影片的點擊播放 */
         }
     </style>
 </head>
@@ -130,21 +131,15 @@
                 <!-- Before & After Videos -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <!-- Before -->
-                    <div class="media-container bg-black group">
+                    <div class="media-container bg-black group aspect-video relative">
                         <div class="media-label text-gray-300 border-gray-500">裝潢前 BEFORE</div>
-                        <video class="w-full h-auto aspect-video object-cover" controls playsinline preload="metadata">
-                            <source src="./videos/XHIS8360.MP4" type="video/mp4">
-                            您的瀏覽器不支援影片播放。
-                        </video>
+                        <iframe src="https://streamable.com/e/d10xqs" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                     </div>
                     
                     <!-- After -->
-                    <div class="media-container bg-black group">
+                    <div class="media-container bg-black group aspect-video relative">
                         <div class="media-label">裝潢後 AFTER ✨</div>
-                        <video class="w-full h-auto aspect-video object-cover" autoplay loop muted controls playsinline>
-                            <source src="./videos/MJRK2690.MP4" type="video/mp4">
-                            您的瀏覽器不支援影片播放。
-                        </video>
+                        <iframe src="https://streamable.com/e/hz24c8?autoplay=1&muted=1&loop=1" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                     </div>
                 </div>
             </div>
@@ -172,21 +167,15 @@
                 <!-- Before & After Videos -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <!-- Before -->
-                    <div class="media-container bg-black group">
+                    <div class="media-container bg-black group aspect-video relative">
                         <div class="media-label text-gray-300 border-gray-500">裝潢前 BEFORE</div>
-                        <video class="w-full h-auto aspect-video object-cover" controls playsinline preload="metadata">
-                            <source src="./videos/BOGM6417.MP4" type="video/mp4">
-                            您的瀏覽器不支援影片播放。
-                        </video>
+                        <iframe src="https://streamable.com/e/382014" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                     </div>
                     
                     <!-- After -->
-                    <div class="media-container bg-black group">
+                    <div class="media-container bg-black group aspect-video relative">
                         <div class="media-label">裝潢後 AFTER ✨</div>
-                        <video class="w-full h-auto aspect-video object-cover" autoplay loop muted controls playsinline>
-                            <source src="./videos/QSUA3618.MP4" type="video/mp4">
-                            您的瀏覽器不支援影片播放。
-                        </video>
+                        <iframe src="https://streamable.com/e/ldavps?autoplay=1&muted=1&loop=1" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                     </div>
                 </div>
             </div>
