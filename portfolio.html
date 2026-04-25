@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精選作品集 | 侑霖室內裝潢設計</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0c',
+                            light: '#f5f5f0',
+                            gold: '#d4af37',
+                            brown: '#8b7355',
+                            gray: '#2a2a2c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .glass-panel {
+            background: rgba(42, 42, 44, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Video container specific styling */
+        .media-container {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .media-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(8px);
+            color: #d4af37;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            z-index: 10;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav shadow-lg" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <iconify-icon icon="ph:arrow-left-light" class="text-2xl text-brand-gold group-hover:-translate-x-1 transition-transform"></iconify-icon>
+                <span class="font-serif text-xl font-bold tracking-widest text-white">回首頁</span>
+            </a>
+            <div class="flex space-x-8 items-center text-sm font-medium tracking-wide">
+                <a href="https://lin.ee/PSoX5Fd" target="_blank" rel="noopener noreferrer" class="bg-brand-gold text-brand-dark px-6 py-2.5 rounded-full hover:bg-white transition-all duration-300 font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]">預約丈量</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-gold/5 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 text-center gs-reveal">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">空間蛻變紀實</h1>
+            <p class="text-brand-gold tracking-widest text-sm md:text-base">BEFORE & AFTER / 見證夢想成真的過程</p>
+        </div>
+    </section>
+
+    <!-- Project 1: 台北市長沙街獨立套房 -->
+    <section class="py-16 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass-panel rounded-3xl p-6 md:p-10 gs-reveal">
+                <div class="mb-8 flex items-center gap-4 border-b border-white/10 pb-6">
+                    <iconify-icon icon="ph:buildings-duotone" class="text-4xl text-brand-gold"></iconify-icon>
+                    <div>
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-white">台北市長沙街</h2>
+                        <p class="text-gray-400 mt-1">獨立套房規劃設計</p>
+                    </div>
+                </div>
+
+                <!-- Before & After Videos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <!-- Before -->
+                    <div class="media-container bg-black group">
+                        <div class="media-label text-gray-300 border-gray-500">裝潢前 BEFORE</div>
+                        <video class="w-full h-auto aspect-video object-cover" controls playsinline preload="metadata">
+                            <source src="./videos/XHIS8360.MP4" type="video/mp4">
+                            您的瀏覽器不支援影片播放。
+                        </video>
+                    </div>
+                    
+                    <!-- After -->
+                    <div class="media-container bg-black group">
+                        <div class="media-label">裝潢後 AFTER ✨</div>
+                        <video class="w-full h-auto aspect-video object-cover" autoplay loop muted controls playsinline>
+                            <source src="./videos/MJRK2690.MP4" type="video/mp4">
+                            您的瀏覽器不支援影片播放。
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project 2: 三重新北大道 -->
+    <section class="py-16 relative mb-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass-panel rounded-3xl p-6 md:p-10 gs-reveal">
+                <div class="mb-8 flex items-center gap-4 border-b border-white/10 pb-6">
+                    <iconify-icon icon="ph:house-line-duotone" class="text-4xl text-brand-gold"></iconify-icon>
+                    <div>
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-white">三重新北大道</h2>
+                        <p class="text-gray-400 mt-1">全室裝修與生活美學</p>
+                    </div>
+                </div>
+
+                <!-- Cover Image -->
+                <div class="media-container mb-8 aspect-[21/9] w-full">
+                    <div class="media-label">完工美照 COVER</div>
+                    <img src="./images/IMG_1027.JPG" alt="三重新北大道完工照" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Before & After Videos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <!-- Before -->
+                    <div class="media-container bg-black group">
+                        <div class="media-label text-gray-300 border-gray-500">裝潢前 BEFORE</div>
+                        <video class="w-full h-auto aspect-video object-cover" controls playsinline preload="metadata">
+                            <source src="./videos/BOGM6417.MP4" type="video/mp4">
+                            您的瀏覽器不支援影片播放。
+                        </video>
+                    </div>
+                    
+                    <!-- After -->
+                    <div class="media-container bg-black group">
+                        <div class="media-label">裝潢後 AFTER ✨</div>
+                        <video class="w-full h-auto aspect-video object-cover" autoplay loop muted controls playsinline>
+                            <source src="./videos/QSUA3618.MP4" type="video/mp4">
+                            您的瀏覽器不支援影片播放。
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-brand-dark/90 pb-8 pt-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-xs text-gray-600">
+            <p>&copy; 2024 侑霖室內裝潢設計 Youlin Interior Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script for animations -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const revealElements = document.querySelectorAll(".gs-reveal");
+        revealElements.forEach((elem) => {
+            gsap.fromTo(elem, { y: 50, opacity: 0 }, {
+                y: 0, opacity: 1, duration: 1, ease: "power3.out",
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+    </script>
+</body>
+</html>
