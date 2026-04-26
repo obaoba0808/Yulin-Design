@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://obaoba0808.github.io/Yulin-Design/sitemap.xml
