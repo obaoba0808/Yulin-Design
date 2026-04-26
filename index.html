@@ -55,11 +55,11 @@
     </script>
 
     <!-- Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -84,6 +84,54 @@
       "image": "https://obaoba0808.github.io/Yulin-Design/images/侑霖室內設計師.jpeg",
       "logo": "https://obaoba0808.github.io/Yulin-Design/images/侑霖室內設計師.jpeg",
       "sameAs": ["https://lin.ee/PSoX5Fd"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "室內設計的收費方式是怎樣的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "室內設計收費通常依坪數與設計複雜度而定，一般行情為每坪 NT$3,000～NT$12,000。侑霖室內設計提供免費初估報價，依照您的空間需求與預算量身規劃。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "從設計到完工需要多久時間？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "一般住宅設計到完工約需 2～4 個月，視坪數與工程複雜度而定。商業空間因需配合營業時程，通常可壓縮至 1～3 個月。侑霖會在初次諮詢時提供明確的時程規劃。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以只做設計不做施工嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。侑霖提供純設計方案，包含平面配置圖、3D 透視圖與施工圖說。我們也提供設計到施工一條龍服務，確保設計圖100%落地。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "台北和新北都有服務嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有的，侑霖室內設計服務範圍涵蓋台北市與新北市全區，桃園地區亦可預約。歡迎透過 LINE 或電話預約免費到府丈量。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "裝修期間需要搬到外面住嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "若為全室裝修，通常需要暫時搬遷；若為局部改進，則可在施工期間繼續居住。侑霖會在工程前詳細說明施工期程與注意事項。"
+          }
+        }
+      ]
     }
     </script>
 
@@ -177,6 +225,7 @@
                 <a href="#philosophy" class="hover:text-brand-gold transition-colors">設計理念</a>
                 <a href="#bento-portfolio" class="hover:text-brand-gold transition-colors">空間美學</a>
                 <a href="#features" class="hover:text-brand-gold transition-colors">服務優勢</a>
+                <a href="#faq" class="hover:text-brand-gold transition-colors">常見問題</a>
                 <!-- 替換為 LINE 連結 -->
                 <a href="https://lin.ee/PSoX5Fd" target="_blank" rel="noopener noreferrer" class="bg-brand-gold text-brand-dark px-6 py-2.5 rounded-full hover:bg-white transition-all duration-300 font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]">立即預約</a>
             </div>
@@ -192,7 +241,7 @@
         <!-- Background Image with Gradient Overlay -->
         <div class="absolute inset-0 z-0">
             <!-- 室內設計專屬背景圖 -->
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="頂級室內設計與生活美學" class="w-full h-full object-cover object-center scale-105 transform origin-center animate-[subtleZoom_20s_ease-in-out_infinite_alternate]" />
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="頂級室內設計與生活美學" loading="eager" class="w-full h-full object-cover object-center scale-105 transform origin-center animate-[subtleZoom_20s_ease-in-out_infinite_alternate]" />
             <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/60 to-brand-dark"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-transparent to-brand-dark/90"></div>
         </div>
@@ -252,7 +301,7 @@
                 <!-- Small Image/Feature Card -->
                 <div class="bento-item bento-span-4 glass-panel group gs-reveal delay-100">
                     <div class="absolute inset-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="溫暖舒適配色" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="溫暖舒適配色" loading="lazy" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
                     </div>
                     <div class="relative z-10 p-8 h-full flex flex-col justify-end">
@@ -264,7 +313,7 @@
                 <!-- Small Image/Feature Card -->
                 <div class="bento-item bento-span-4 glass-panel group gs-reveal">
                     <div class="absolute inset-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="現代簡約風格" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="現代簡約風格" loading="lazy" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
                     </div>
                     <div class="relative z-10 p-8 h-full flex flex-col justify-end">
@@ -283,7 +332,7 @@
                         </p>
                     </div>
                     <div class="hidden md:block w-1/3 h-full rounded-xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="自然元素" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="自然元素" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -311,7 +360,7 @@
                     <!-- ========================================== -->
                     <!-- 💡 在這裡替換成您剛剛上傳的西裝男性圖片檔案名 -->
                     <!-- ========================================== -->
-                    <img src="/Yulin-Design/images/侑霖室內設計師.jpeg" alt="頂級豪宅室內裝修與專屬設計師" class="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105">
+                    <img src="/Yulin-Design/images/侑霖室內設計師.jpeg" alt="頂級豪宅室內裝修與專屬設計師" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105">
                     
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -323,7 +372,7 @@
 
                 <!-- Top Right 1 -->
                 <div class="rounded-2xl overflow-hidden relative group cursor-pointer gs-reveal delay-100">
-                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="客廳居家裝潢" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="客廳居家裝潢" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-6">
                         <h3 class="font-serif text-lg text-white font-bold drop-shadow-md">溫馨北歐宅</h3>
@@ -332,7 +381,7 @@
 
                 <!-- Top Right 2 -->
                 <div class="rounded-2xl overflow-hidden relative group cursor-pointer gs-reveal delay-200">
-                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="現代空間規劃" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="現代空間規劃" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-6">
                         <h3 class="font-serif text-lg text-white font-bold drop-shadow-md">現代極簡公寓</h3>
@@ -341,7 +390,7 @@
 
                 <!-- Bottom Right (Spans 2 cols) -->
                 <div class="md:col-span-2 rounded-2xl overflow-hidden relative group cursor-pointer gs-reveal delay-300">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="商辦空間設計" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="商辦空間設計" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
                     <div class="absolute top-1/2 -translate-y-1/2 left-0 p-8 max-w-sm">
                         <span class="text-brand-gold text-xs tracking-widest uppercase mb-2 block">Case Study</span>
@@ -350,6 +399,68 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 relative z-10">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 gs-reveal">
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-white mb-4">常見問題</h2>
+                <p class="text-gray-400 tracking-widest">關於室內設計與裝潢，您最想知道的事</p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="glass-panel rounded-2xl group gs-reveal">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer text-white font-medium text-lg hover:text-brand-gold transition-colors">
+                        <span>室內設計的收費方式是怎樣的？</span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform group-open:rotate-180"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        室內設計收費通常依坪數與設計複雜度而定，一般行情為每坪 NT$3,000～NT$12,000。侑霖室內設計提供免費初估報價，依照您的空間需求與預算量身規劃，讓每一分錢都花在刀口上。
+                    </div>
+                </details>
+
+                <details class="glass-panel rounded-2xl group gs-reveal delay-100">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer text-white font-medium text-lg hover:text-brand-gold transition-colors">
+                        <span>從設計到完工需要多久時間？</span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform group-open:rotate-180"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        一般住宅設計到完工約需 2～4 個月，視坪數與工程複雜度而定。商業空間因需配合營業時程，通常可壓縮至 1～3 個月。侑霖會在初次諮詢時提供明確的時程規劃，讓您掌握每個階段進度。
+                    </div>
+                </details>
+
+                <details class="glass-panel rounded-2xl group gs-reveal delay-200">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer text-white font-medium text-lg hover:text-brand-gold transition-colors">
+                        <span>可以只做設計不做施工嗎？</span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform group-open:rotate-180"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        可以。侑霖提供純設計方案，包含平面配置圖、3D 透視圖與施工圖說，您可以自行找統包施作。不過我們也提供設計到施工一條龍服務，確保設計圖100%落地，避免施工品質與設計脫節。
+                    </div>
+                </details>
+
+                <details class="glass-panel rounded-2xl group gs-reveal delay-300">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer text-white font-medium text-lg hover:text-brand-gold transition-colors">
+                        <span>台北和新北都有服務嗎？</span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform group-open:rotate-180"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        有的，侑霖室內設計服務範圍涵蓋台北市與新北市全區，桃園地區亦可預約。歡迎透過 LINE 或電話預約免費到府丈量，我們會親自到場了解您的空間與需求。
+                    </div>
+                </details>
+
+                <details class="glass-panel rounded-2xl group gs-reveal delay-400">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer text-white font-medium text-lg hover:text-brand-gold transition-colors">
+                        <span>裝修期間需要搬到外面住嗎？</span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform group-open:rotate-180"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        若為全室裝修，通常需要暫時搬遷；若為局部改進（如單一房間或廚衛），則可在施工期間繼續居住。侑霖會在工程前詳細說明施工期程與注意事項，協助您提前安排。
+                    </div>
+                </details>
             </div>
         </div>
     </section>
@@ -413,19 +524,19 @@
                     <div>
                         <h4 class="text-white font-medium mb-4">服務項目</h4>
                         <ul class="space-y-2 text-gray-500 text-sm">
-                            <li><a href="#" class="hover:text-brand-gold transition-colors">室內設計</a></li>
-                            <li><a href="#" class="hover:text-brand-gold transition-colors">室內裝修</a></li>
-                            <li><a href="#" class="hover:text-brand-gold transition-colors">商業空間設計</a></li>
-                            <li><a href="#" class="hover:text-brand-gold transition-colors">空間規劃</a></li>
+                            <li><a href="#philosophy" class="hover:text-brand-gold transition-colors">室內設計</a></li>
+                            <li><a href="#philosophy" class="hover:text-brand-gold transition-colors">室內裝修</a></li>
+                            <li><a href="#bento-portfolio" class="hover:text-brand-gold transition-colors">商業空間設計</a></li>
+                            <li><a href="#philosophy" class="hover:text-brand-gold transition-colors">空間規劃</a></li>
                         </ul>
                     </div>
                     <div>
                         <h4 class="text-white font-medium mb-4">設計探索</h4>
                         <ul class="space-y-2 text-gray-500 text-sm">
-                            <li><a href="#" class="hover:text-brand-gold transition-colors">設計案例</a></li>
-                            <li><a href="#" class="hover:text-brand-gold transition-colors">設計風格與靈感</a></li>
-                            <li><a href="#" class="hover:text-brand-gold transition-colors">收納與配色技巧</a></li>
-                            <li><a href="#" class="hover:text-brand-gold transition-colors">風水設計</a></li>
+                            <li><a href="portfolio.html" class="hover:text-brand-gold transition-colors">設計案例</a></li>
+                            <li><a href="#philosophy" class="hover:text-brand-gold transition-colors">設計風格與靈感</a></li>
+                            <li><a href="#philosophy" class="hover:text-brand-gold transition-colors">收納與配色技巧</a></li>
+                            <li><a href="#philosophy" class="hover:text-brand-gold transition-colors">風水設計</a></li>
                         </ul>
                     </div>
                 </div>
