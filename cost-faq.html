@@ -171,7 +171,7 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark/95 backdrop-blur-md flex flex-col items-center justify-center gap-6 hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark/95 backdrop-blur-md flex flex-col items-center justify-center gap-6" style="display:none">
         <a href="index.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">首頁</a>
         <a href="portfolio.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">作品集</a>
         <span class="text-white/20 text-sm">─────────────────</span>
@@ -642,10 +642,10 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileClose = document.getElementById('mobile-close');
         if (menuBtn && mobileMenu && mobileClose) {
-            menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
-            mobileClose.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            menuBtn.addEventListener('click', () => { mobileMenu.style.display = 'flex'; });
+            mobileClose.addEventListener('click', () => { mobileMenu.style.display = 'none'; });
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                link.addEventListener('click', () => { mobileMenu.style.display = 'none'; });
             });
         }
     </script>
