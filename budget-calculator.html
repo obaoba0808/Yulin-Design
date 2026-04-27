@@ -99,7 +99,9 @@
                 <a href="about.html" class="px-3 py-1 hover:text-brand-gold transition-colors">關於侑霖</a>
                 <a href="https://lin.ee/PSoX5Fd" target="_blank" rel="noopener noreferrer" class="ml-3 bg-brand-gold text-brand-dark px-6 py-2.5 rounded-full hover:bg-white transition-all duration-300 font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]">立即預約</a>
             </div>
-            <button class="md:hidden text-2xl text-white" id="menu-btn"><iconify-icon icon="ph:list-bold"></iconify-icon></button>
+            <button class="md:hidden text-2xl text-white relative z-[999] cursor-pointer" id="menu-btn">
+            <span style="pointer-events:none;display:block"><iconify-icon icon="ph:list-bold"></iconify-icon></span>
+        </button>
         </div>
     </nav>
 
@@ -595,7 +597,7 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileClose = document.getElementById('mobile-close');
         if (menuBtn && mobileMenu && mobileClose) {
-            menuBtn.addEventListener('click', () => { mobileMenu.style.display = 'flex'; });
+            menuBtn.addEventListener('click', () => { console.log('HAMBURGER CLICKED', mobileMenu.style.display); mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex'; });
             mobileClose.addEventListener('click', () => { mobileMenu.style.display = 'none'; });
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => { mobileMenu.style.display = 'none'; });
