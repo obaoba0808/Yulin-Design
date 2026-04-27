@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>裝修預算計算機 | 侑霖室內裝潢設計</title>
+    <meta name="description" content="線上裝修預算計算機，輸入坪數與裝修等級，立即估算費用。台北室內設計預算規劃神器。">
+    <link rel="canonical" href="https://obaoba0808.github.io/Yulin-Design/budget-calculator.html">
+
+    <!-- OG Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="裝修預算計算機 | 侑霖室內裝潢設計">
+    <meta property="og:description" content="線上裝修預算計算機，輸入坪數與裝修等級，立即估算費用。台北室內設計預算規劃神器。">
+    <meta property="og:url" content="https://obaoba0808.github.io/Yulin-Design/budget-calculator.html">
+    <meta property="og:site_name" content="侑霖室內裝潢設計">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="裝修預算計算機 | 侑霖室內裝潢設計">
+    <meta name="twitter:description" content="線上裝修預算計算機，輸入坪數與裝修等級，立即估算費用。台北室內設計預算規劃神器。">
+
+    <!-- Favicon SVG -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F3E0;</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="dist/output.css">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "裝修預算計算機 | 侑霖室內裝潢設計",
+        "description": "線上裝修預算計算機，輸入坪數與裝修等級，立即估算費用。台北室內設計預算規劃神器。",
+        "author": { "@type": "Organization", "name": "侑霖室內裝潢設計" },
+        "publisher": { "@type": "Organization", "name": "侑霖室內裝潢設計" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "裝修預算怎麼抓最準？",
+                "acceptedAnswer": { "@type": "Answer", "text": "建議以「室內實際坪數 × 期望的裝修單價」作為基礎，再加計 15%~20% 的預備金。計算機提供的是區間估計，建議預約現場丈量取得精準報價。" }
+            },
+            {
+                "@type": "Question",
+                "name": "計算機的結果準確嗎？",
+                "acceptedAnswer": { "@type": "Answer", "text": "計算機反映的是市場行情區間，實際費用會依屋況、建材品牌、設計複雜度而有增減。本結果僅供初步參考，精準報價需由設計師現場評估後提供。" }
+            },
+            {
+                "@type": "Question",
+                "name": "預算有限怎麼省錢裝修？",
+                "acceptedAnswer": { "@type": "Answer", "text": "可以從「輕裝修」概念著手：保留基礎水電不動、以系統櫃代替木作、選擇國產優質建材、分區施作（先做公共空間再處理私領域）。侑霖設計師會在有限預算內創造最大效益。" }
+            },
+            {
+                "@type": "Question",
+                "name": "可以分階段裝修嗎？",
+                "acceptedAnswer": { "@type": "Answer", "text": "完全可以。分階段裝修能有效分散資金壓力，常見做法是先做基礎工程（水電、衛浴、地板），再依序完成櫃體、燈具、家電。通常建議一次做完基礎，避免日後二次施工破壞已完成項目。" }
+            },
+            {
+                "@type": "Question",
+                "name": "需要留多少預備金？",
+                "acceptedAnswer": { "@type": "Answer", "text": "業界建議預留總預算的 15%~20% 作為預備金，主要用於施工中發現的隱藏問題（如壁癌、管線老化）、設計變更或建材調價。若屋況較新，可抓 10%；老屋建議拉到 20%~25%。" }
+            },
+            {
+                "@type": "Question",
+                "name": "計算機結果與實際費用會差多少？",
+                "acceptedAnswer": { "@type": "Answer", "text": "計算機結果代表的是「市場行情區間」，實際費用通常落在此區間內，但若遇以下情形可能超出：老屋壁癌需先處理、格局變動涉及水電重拉、選擇進口特殊建材、或施工難度較高（如夾層設計）。建議以計算結果再加 15%~20% 預備金看待。" }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <iconify-icon icon="ph:buildings-duotone" class="text-3xl text-brand-gold group-hover:scale-110 transition-transform"></iconify-icon>
+                <span class="font-serif text-xl font-bold tracking-widest text-white">侑霖室內設計</span>
+            </a>
+            <div class="hidden md:flex flex-wrap items-center gap-x-1 gap-y-2 text-sm font-medium tracking-wide">
+                <a href="index.html" class="px-3 py-1 hover:text-brand-gold transition-colors">首頁</a>
+                <a href="portfolio.html" class="px-3 py-1 hover:text-brand-gold transition-colors">作品集</a>
+                <span class="text-white/20">｜</span>
+                <a href="design-styles.html" class="px-3 py-1 hover:text-brand-gold transition-colors">設計風格</a>
+                <a href="renovation-cost.html" class="px-3 py-1 hover:text-brand-gold transition-colors">收費行情</a>
+                <a href="budget-calculator.html" class="px-3 py-1 text-brand-gold transition-colors">預算計算</a>
+                <a href="renovation-process.html" class="px-3 py-1 hover:text-brand-gold transition-colors">裝修流程</a>
+                <a href="cost-faq.html" class="px-3 py-1 hover:text-brand-gold transition-colors">費用FAQ</a>
+                <a href="about.html" class="px-3 py-1 hover:text-brand-gold transition-colors">關於侑霖</a>
+                <a href="https://lin.ee/PSoX5Fd" target="_blank" rel="noopener noreferrer" class="ml-3 bg-brand-gold text-brand-dark px-6 py-2.5 rounded-full hover:bg-white transition-all duration-300 font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]">立即預約</a>
+            </div>
+            <button class="md:hidden text-2xl text-white"><iconify-icon icon="ph:list-bold"></iconify-icon></button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-32">
+        <!-- BG gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark via-[#0d0d0f] to-brand-dark"></div>
+        <!-- Subtle grid overlay -->
+        <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(rgba(212,175,55,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.3) 1px,transparent 1px);background-size:60px 60px;"></div>
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <p class="text-brand-gold uppercase tracking-[0.3em] text-sm font-semibold mb-6 gs-reveal">RENOVATION BUDGET</p>
+            <h1 class="font-serif text-4xl md:text-6xl font-bold text-white leading-tight mb-6 gs-reveal">裝修預算計算機</h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 gs-reveal">
+                輸入您的室內坪數與期望的裝修等級，<br class="hidden md:block">
+                立即獲得透明的費用區間估算，<br class="hidden md:block">
+                讓您在踏出第一步之前就能完整掌握裝修藍圖。
+            </p>
+            <!-- Gold divider -->
+            <div class="w-16 h-[2px] bg-brand-gold mx-auto gs-reveal"></div>
+        </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="py-20 px-6 relative" id="calculator">
+        <div class="max-w-3xl mx-auto">
+
+            <div class="text-center mb-12 gs-reveal">
+                <h2 class="font-serif text-3xl font-bold text-white mb-3">輸入以下資訊，立即計算裝修預算</h2>
+                <p class="text-gray-500">系統將根據市場行情為您估算費用區間</p>
+            </div>
+
+            <!-- Calculator Card -->
+            <div class="glass-panel rounded-2xl p-8 md:p-12 gs-reveal">
+                <form id="budget-form" onsubmit="return false;">
+                    <div class="space-y-6">
+                        <!-- Ping input -->
+                        <div>
+                            <label for="ping-input" class="block text-sm font-medium text-gray-300 mb-2 tracking-wide">
+                                <iconify-icon icon="ph:ruler-duotone" class="inline mr-1 text-brand-gold"></iconify-icon>
+                                室內坪數
+                            </label>
+                            <div class="relative">
+                                <input
+                                    type="number"
+                                    id="ping-input"
+                                    name="ping"
+                                    placeholder="例如：25"
+                                    min="1"
+                                    max="500"
+                                    step="0.5"
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all text-lg"
+                                >
+                                <span class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 text-sm">坪</span>
+                            </div>
+                        </div>
+
+                        <!-- Level select -->
+                        <div>
+                            <label for="level-select" class="block text-sm font-medium text-gray-300 mb-2 tracking-wide">
+                                <iconify-icon icon="ph:star-duotone" class="inline mr-1 text-brand-gold"></iconify-icon>
+                                裝修等級
+                            </label>
+                            <select
+                                id="level-select"
+                                name="level"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all text-lg appearance-none cursor-pointer"
+                            >
+                                <option value="basic">基本裝修（NT$8,000-15,000/坪）— 水電更新、油漆、地板、基本收納</option>
+                                <option value="mid">中階裝修（NT$15,000-25,000/坪）— 木作櫃體、系統櫃、衛浴更新、燈具配置</option>
+                                <option value="luxury">精品裝修（NT$30,000-50,000/坪）— 全室木作、進口建材、精品衛浴、客製化設計</option>
+                            </select>
+                            <div class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 mt-5">
+                                <iconify-icon icon="ph:caret-down" class="text-gray-500"></iconify-icon>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button
+                            type="button"
+                            onclick="calculateBudget()"
+                            class="w-full bg-brand-gold text-brand-dark font-bold text-lg py-4 rounded-xl hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.35)] hover:shadow-[0_0_30px_rgba(212,175,55,0.55)] gs-reveal"
+                        >
+                            <iconify-icon icon="ph:calculator-duotone" class="inline mr-2 text-xl"></iconify-icon>
+                            計算預算
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Result Box -->
+                <div id="result-box" class="mt-8 hidden">
+                    <div class="border-t border-white/10 pt-8">
+                        <div class="bg-brand-gold/10 border border-brand-gold/30 rounded-2xl p-8 text-center">
+                            <p class="text-brand-gold text-sm uppercase tracking-widest mb-4 font-semibold">
+                                <iconify-icon icon="ph:check-circle-duotone" class="inline mr-1"></iconify-icon>
+                                您的裝修預算估計為
+                            </p>
+                            <p class="text-4xl md:text-5xl font-serif font-bold text-white mb-2">
+                                NT$<span id="result-min">0</span>萬 ~ NT$<span id="result-max">0</span>萬
+                            </p>
+                            <p class="text-gray-500 text-sm mt-4">此為市場行情區間估算，精準報價需由設計師現場評估</p>
+                            <div class="mt-6">
+                                <a href="https://lin.ee/PSoX5Fd" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 bg-brand-gold text-brand-dark font-bold px-8 py-3 rounded-full hover:bg-white transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                                    <iconify-icon icon="ph:chat-circle-text-duotone" class="text-xl"></iconify-icon>
+                                    預約現場估價，獲得精準報價
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <p class="text-center text-gray-600 text-xs mt-6 gs-reveal">
+                本計算結果僅供參考，實際費用依屋況、建材等級與設計需求而異。建議預留 15%~20% 預備金。
+            </p>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="py-20 px-6 bg-brand-dark/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14 gs-reveal">
+                <h2 class="font-serif text-3xl font-bold text-white mb-3">各坪數案例參考</h2>
+                <p class="text-gray-500">真實案例告訴您，不同坪數的裝修行情落在哪裡</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Card 1: 15坪 小宅 -->
+                <div class="glass-panel rounded-2xl p-6 text-center hover:border-brand-gold/30 transition-all duration-300 gs-reveal group">
+                    <div class="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-brand-gold/20 transition-colors">
+                        <iconify-icon icon="ph:house-line-duotone" class="text-3xl text-brand-gold"></iconify-icon>
+                    </div>
+                    <div class="text-brand-gold text-xs uppercase tracking-widest mb-2">小宅首選</div>
+                    <h3 class="text-white font-bold text-xl mb-1">15坪</h3>
+                    <p class="text-gray-400 text-sm mb-4">北歐風 · 兩房一廳</p>
+                    <div class="border-t border-white/5 pt-4">
+                        <p class="text-gray-500 text-xs mb-1">預估費用</p>
+                        <p class="text-white font-bold text-lg">NT$30 ~ 45<span class="text-gray-500 text-sm font-normal">萬</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 2: 25坪 兩房 -->
+                <div class="glass-panel rounded-2xl p-6 text-center hover:border-brand-gold/30 transition-all duration-300 gs-reveal group">
+                    <div class="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-brand-gold/20 transition-colors">
+                        <iconify-icon icon="ph:building-apartment-duotone" class="text-3xl text-brand-gold"></iconify-icon>
+                    </div>
+                    <div class="text-brand-gold text-xs uppercase tracking-widest mb-2">主流坪數</div>
+                    <h3 class="text-white font-bold text-xl mb-1">25坪</h3>
+                    <p class="text-gray-400 text-sm mb-4">現代簡約 · 兩房</p>
+                    <div class="border-t border-white/5 pt-4">
+                        <p class="text-gray-500 text-xs mb-1">預估費用</p>
+                        <p class="text-white font-bold text-lg">NT$50 ~ 75<span class="text-gray-500 text-sm font-normal">萬</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 3: 35坪 三房 -->
+                <div class="glass-panel rounded-2xl p-6 text-center hover:border-brand-gold/30 transition-all duration-300 gs-reveal group">
+                    <div class="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-brand-gold/20 transition-colors">
+                        <iconify-icon icon="ph:buildings-duotone" class="text-3xl text-brand-gold"></iconify-icon>
+                    </div>
+                    <div class="text-brand-gold text-xs uppercase tracking-widest mb-2">家庭首選</div>
+                    <h3 class="text-white font-bold text-xl mb-1">35坪</h3>
+                    <p class="text-gray-400 text-sm mb-4">輕奢風 · 三房</p>
+                    <div class="border-t border-white/5 pt-4">
+                        <p class="text-gray-500 text-xs mb-1">預估費用</p>
+                        <p class="text-white font-bold text-lg">NT$80 ~ 120<span class="text-gray-500 text-sm font-normal">萬</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 4: 50坪 透天 -->
+                <div class="glass-panel rounded-2xl p-6 text-center hover:border-brand-gold/30 transition-all duration-300 gs-reveal group">
+                    <div class="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-brand-gold/20 transition-colors">
+                        <iconify-icon icon="ph:city-duotone" class="text-3xl text-brand-gold"></iconify-icon>
+                    </div>
+                    <div class="text-brand-gold text-xs uppercase tracking-widest mb-2">透天別墅</div>
+                    <h3 class="text-white font-bold text-xl mb-1">50坪</h3>
+                    <p class="text-gray-400 text-sm mb-4">新古典 · 透天</p>
+                    <div class="border-t border-white/5 pt-4">
+                        <p class="text-gray-500 text-xs mb-1">預估費用</p>
+                        <p class="text-white font-bold text-lg">NT$150 ~ 250<span class="text-gray-500 text-sm font-normal">萬</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUDGET ALLOCATION -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-panel rounded-2xl p-8 md:p-12 gs-reveal">
+                <div class="flex items-start gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <iconify-icon icon="ph:chart-pie-slice-duotone" class="text-2xl text-brand-gold"></iconify-icon>
+                    </div>
+                    <div>
+                        <h2 class="font-serif text-2xl font-bold text-white mb-3">裝修預算分配建議</h2>
+                        <p class="text-gray-400 leading-relaxed">
+                            根據業界統計與 <a href="renovation-cost.html" class="text-brand-gold hover:underline">收費行情頁</a> 的完整資料，常見預算分配比例如下：
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Allocation bars -->
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-300">基礎工程（水電、泥作、防水）</span>
+                            <span class="text-brand-gold font-bold">30%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-brand-gold h-2 rounded-full" style="width:30%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-300">木作與系統櫃</span>
+                            <span class="text-brand-gold font-bold">25%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-brand-gold h-2 rounded-full" style="width:25%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-300">衛浴與廚房</span>
+                            <span class="text-brand-gold font-bold">20%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-brand-gold h-2 rounded-full" style="width:20%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-300">燈具、家電、窗簾軟件</span>
+                            <span class="text-brand-gold font-bold">15%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-brand-gold h-2 rounded-full" style="width:15%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-300">設計費與管理費</span>
+                            <span class="text-brand-gold font-bold">10%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-brand-gold h-2 rounded-full" style="width:10%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 bg-brand-gold/5 border border-brand-gold/20 rounded-xl">
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        <iconify-icon icon="ph:info-duotone" class="inline text-brand-gold mr-1"></iconify-icon>
+                        <strong class="text-white">💡 小提醒：</strong>
+                        以上為參考比例，實際分配應依您的需求調整。若選擇精品裝修，衛浴與建材佔比通常會提高至 35% 以上。建議與設計師充分溝通後再確認最終比例。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 px-6 bg-brand-dark/50">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-14 gs-reveal">
+                <h2 class="font-serif text-3xl font-bold text-white mb-3">常見問題</h2>
+                <p class="text-gray-500">關於預算規劃，您可能想知道的</p>
+            </div>
+
+            <div class="space-y-4 gs-reveal">
+                <!-- FAQ 1 -->
+                <details class="glass-panel rounded-xl group">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 text-white font-medium hover:text-brand-gold transition-colors list-none">
+                        <span class="flex items-center gap-3">
+                            <iconify-icon icon="ph:question-duotone" class="text-brand-gold text-xl flex-shrink-0"></iconify-icon>
+                            裝修預算怎麼抓最準？
+                        </span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform duration-300 group-open:rotate-180 text-xl flex-shrink-0"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        建議以「室內實際坪數 × 期望的裝修單價」作為基礎，再加計 <strong class="text-white">15%~20% 的預備金</strong>。計算機提供的是區間估計，建議預約現場丈量取得精準報價。
+                    </div>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="glass-panel rounded-xl group">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 text-white font-medium hover:text-brand-gold transition-colors list-none">
+                        <span class="flex items-center gap-3">
+                            <iconify-icon icon="ph:question-duotone" class="text-brand-gold text-xl flex-shrink-0"></iconify-icon>
+                            計算機的結果準確嗎？
+                        </span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform duration-300 group-open:rotate-180 text-xl flex-shrink-0"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        計算機反映的是<strong class="text-white">市場行情區間</strong>，實際費用會依屋況、建材品牌、設計複雜度而有增減。本結果僅供初步參考，精準報價需由設計師現場評估後提供。
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="glass-panel rounded-xl group">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 text-white font-medium hover:text-brand-gold transition-colors list-none">
+                        <span class="flex items-center gap-3">
+                            <iconify-icon icon="ph:question-duotone" class="text-brand-gold text-xl flex-shrink-0"></iconify-icon>
+                            預算有限怎麼省錢裝修？
+                        </span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform duration-300 group-open:rotate-180 text-xl flex-shrink-0"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        可以從「輕裝修」概念著手：保留基礎水電不動、以<strong class="text-white">系統櫃代替木作</strong>、選擇國產優質建材、分區施作（先做公共空間再處理私領域）。侑霖設計師會在有限預算內創造最大效益。
+                    </div>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="glass-panel rounded-xl group">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 text-white font-medium hover:text-brand-gold transition-colors list-none">
+                        <span class="flex items-center gap-3">
+                            <iconify-icon icon="ph:question-duotone" class="text-brand-gold text-xl flex-shrink-0"></iconify-icon>
+                            可以分階段裝修嗎？
+                        </span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform duration-300 group-open:rotate-180 text-xl flex-shrink-0"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        完全可以。<strong class="text-white">分階段裝修</strong>能有效分散資金壓力，常見做法是先做基礎工程（水電、衛浴、地板），再依序完成櫃體、燈具、家電。通常建議一次做完基礎，避免日後二次施工破壞已完成項目。
+                    </div>
+                </details>
+
+                <!-- FAQ 5 -->
+                <details class="glass-panel rounded-xl group">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 text-white font-medium hover:text-brand-gold transition-colors list-none">
+                        <span class="flex items-center gap-3">
+                            <iconify-icon icon="ph:question-duotone" class="text-brand-gold text-xl flex-shrink-0"></iconify-icon>
+                            需要留多少預備金？
+                        </span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform duration-300 group-open:rotate-180 text-xl flex-shrink-0"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        業界建議預留總預算的<strong class="text-white">15%~20%</strong>作為預備金，主要用於施工中發現的隱藏問題（如壁癌、管線老化）、設計變更或建材調價。若屋況較新，可抓 10%；老屋建議拉到 20%~25%。
+                    </div>
+                </details>
+
+                <!-- FAQ 6 -->
+                <details class="glass-panel rounded-xl group">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 text-white font-medium hover:text-brand-gold transition-colors list-none">
+                        <span class="flex items-center gap-3">
+                            <iconify-icon icon="ph:question-duotone" class="text-brand-gold text-xl flex-shrink-0"></iconify-icon>
+                            計算機結果與實際費用會差多少？
+                        </span>
+                        <iconify-icon icon="ph:caret-down" class="text-brand-gold transition-transform duration-300 group-open:rotate-180 text-xl flex-shrink-0"></iconify-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed">
+                        計算機結果代表的是<strong class="text-white">市場行情區間</strong>，實際費用通常落在此區間內，但若遇老屋壁癌需先處理、格局變動涉及水電重拉、選擇進口特殊建材等情形可能超出。建議以計算結果再加 15%~20% 預備金看待。
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-6 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-gold/5 via-transparent to-brand-gold/5"></div>
+        <div class="relative z-10 max-w-2xl mx-auto gs-reveal">
+            <iconify-icon icon="ph:chat-circle-text-duotone" class="text-5xl text-brand-gold mb-6"></iconify-icon>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-4">還在觀望嗎？</h2>
+            <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                線上計算機只能給您一個方向，<br>真正的精準估價，來自設計師的現場了解。
+            </p>
+            <a href="https://lin.ee/PSoX5Fd" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold text-lg px-10 py-5 rounded-full hover:bg-white transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)]">
+                <iconify-icon icon="ph:line-logo-duotone" class="text-2xl"></iconify-icon>
+                免費諮詢，LINE 聯絡我們
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-brand-dark/90 backdrop-blur-md relative z-10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-8">
+                <div class="text-center md:text-left">
+                    <a href="index.html" class="flex items-center gap-2 justify-center md:justify-start mb-4">
+                        <iconify-icon icon="ph:buildings-duotone" class="text-3xl text-brand-gold"></iconify-icon>
+                        <span class="font-serif text-2xl font-bold tracking-widest text-white">侑霖室內設計</span>
+                    </a>
+                    <p class="text-gray-500 text-sm max-w-sm">融合生活習慣與極致美學，為您創造不僅好看、更極致好用的空間設計。</p>
+                </div>
+                <div class="flex gap-12 text-center md:text-left">
+                    <div>
+                        <h4 class="text-white font-medium mb-4">服務項目</h4>
+                        <ul class="space-y-2 text-gray-500 text-sm">
+                            <li><a href="index.html#philosophy" class="hover:text-brand-gold transition-colors">室內設計</a></li>
+                            <li><a href="index.html#philosophy" class="hover:text-brand-gold transition-colors">室內裝修</a></li>
+                            <li><a href="index.html#bento-portfolio" class="hover:text-brand-gold transition-colors">商業空間設計</a></li>
+                            <li><a href="index.html#philosophy" class="hover:text-brand-gold transition-colors">空間規劃</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-4">設計探索</h4>
+                        <ul class="space-y-2 text-gray-500 text-sm">
+                            <li><a href="portfolio.html" class="hover:text-brand-gold transition-colors">設計案例</a></li>
+                            <li><a href="design-styles.html" class="hover:text-brand-gold transition-colors">設計風格</a></li>
+                            <li><a href="renovation-cost.html" class="hover:text-brand-gold transition-colors">收費行情</a></li>
+                            <li><a href="renovation-process.html" class="hover:text-brand-gold transition-colors">裝修流程</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <p>&copy; 2024-2026 侑霖室內裝潢設計 Youlin Interior Design. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS: Iconify + GSAP -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script defer>
+        function calculateBudget() {
+            var ping = parseFloat(document.getElementById('ping-input').value);
+            var level = document.getElementById('level-select').value;
+            if (!ping || ping <= 0) {
+                alert('請輸入正確的坪數');
+                return;
+            }
+            var rates = {
+                basic: [8000, 15000],
+                mid: [15000, 25000],
+                luxury: [30000, 50000]
+            };
+            var r = rates[level];
+            var min = ping * r[0];
+            var max = ping * r[1];
+            var minW = (min / 10000).toFixed(1);
+            var maxW = (max / 10000).toFixed(1);
+            document.getElementById('result-min').textContent = minW;
+            document.getElementById('result-max').textContent = maxW;
+            document.getElementById('result-box').style.display = 'block';
+            // smooth scroll to result
+            document.getElementById('result-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // GSAP reveal
+        window.addEventListener('load', function () {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                document.querySelectorAll('.gs-reveal').forEach(function (elem) {
+                    gsap.fromTo(elem, { y: 50, opacity: 0 }, {
+                        y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    });
+                });
+            }
+        });
+
+        // Nav scroll
+        window.addEventListener('scroll', function () {
+            var nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.style.background = 'rgba(10, 10, 12, 0.9)';
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.style.background = 'rgba(10, 10, 12, 0.7)';
+            }
+        });
+    </script>
+</body>
+</html>
