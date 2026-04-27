@@ -88,9 +88,27 @@
                 <a href="about.html" class="px-3 py-1 hover:text-brand-gold transition-colors">關於侑霖</a>
                 <a href="https://lin.ee/PSoX5Fd" target="_blank" rel="noopener noreferrer" class="ml-3 bg-brand-gold text-brand-dark px-6 py-2.5 rounded-full hover:bg-white transition-all duration-300 font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]">立即預約</a>
             </div>
-            <button class="md:hidden text-2xl text-white"><iconify-icon icon="ph:list-bold"></iconify-icon></button>
+            <button id="menu-btn" class="md:hidden text-2xl text-white"><iconify-icon icon="ph:list-bold"></iconify-icon></button>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-md flex flex-col items-center justify-center gap-6 hidden">
+        <a href="index.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">首頁</a>
+        <a href="portfolio.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">作品集</a>
+        <span class="text-white/20 text-sm">─────────────────</span>
+        <a href="design-styles.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">設計風格</a>
+        <a href="renovation-cost.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">收費行情</a>
+        <a href="budget-calculator.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">預算計算</a>
+        <a href="cost-faq.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">費用FAQ</a>
+        <a href="renovation-process.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">裝修流程</a>
+        <a href="about.html" class="text-xl text-white hover:text-brand-gold transition-colors py-2">關於侑霖</a>
+        <span class="text-white/20 text-sm">─────────────────</span>
+        <a href="https://lin.ee/PSoX5Fd" target="_blank" rel="noopener noreferrer" class="bg-brand-gold text-brand-dark px-8 py-3 rounded-full font-bold text-lg hover:bg-white transition-colors">立即預約</a>
+        <button id="mobile-close" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-gold transition-colors">
+            <iconify-icon icon="ph:x-bold"></iconify-icon>
+        </button>
+    </div>
 
     <!-- Hero -->
     <section class="relative pt-32 pb-20 overflow-hidden">
@@ -337,6 +355,17 @@
             if (window.scrollY > 50) { nav.classList.add('shadow-lg'); nav.style.background = 'rgba(10, 10, 12, 0.9)'; }
             else { nav.classList.remove('shadow-lg'); nav.style.background = 'rgba(10, 10, 12, 0.7)'; }
         });
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileClose = document.getElementById('mobile-close');
+        if (menuBtn && mobileMenu && mobileClose) {
+            menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+            mobileClose.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
     </script>
 </body>
 </html>
